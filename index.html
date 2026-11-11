@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KDMU 摸木魚｜上班摸一下，功德 +1</title>
+<script>
+  /* ===================================================
+     ★ 在這裡貼上你的雲端下載連結（雙引號要保留）
+     例如：https://drive.google.com/file/d/xxxxxxxx/view?usp=sharing
+     =================================================== */
+  const DOWNLOAD_URL = "https://drive.google.com/file/d/17w8xvf7Dee6x9CvE9DLkkEtHzPtkfCLU/view?usp=drive_link";
+  const VERSION = "1.0";
+</script>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+         background: #1c130c; color: #f3e6d3; line-height: 1.7; }
+  main { max-width: 760px; margin: 0 auto; padding: 48px 20px 64px; }
+  .hero { text-align: center; }
+  .fish { position: relative; display: inline-block; cursor: pointer; user-select: none; }
+  .fish svg { transition: transform .08s; }
+  .fish:active svg { transform: translateY(4px); }
+  .plus { position: absolute; top: 0; color: #ffd700; font-weight: bold; font-size: 20px;
+          pointer-events: none; animation: up .8s ease-out forwards; white-space: nowrap; }
+  @keyframes up { from { opacity: 1; transform: translateY(0); }
+                  to   { opacity: 0; transform: translateY(-60px); } }
+  .hint { font-size: 13px; color: #9c8a72; margin: 0; }
+  h1 { font-size: 40px; margin: 8px 0 4px; color: #ffd700; }
+  .tag { color: #c9b59a; margin: 0 0 28px; font-size: 18px; }
+  .btn { display: inline-block; background: #ffd700; color: #2a1a0e; font-weight: bold;
+         font-size: 18px; padding: 14px 36px; border-radius: 999px; text-decoration: none;
+         cursor: pointer; }
+  .btn:hover { background: #ffe54d; }
+  .meta { font-size: 13px; color: #9c8a72; margin-top: 10px; }
+  section { background: #2a1a0e; border: 1px solid #4a3220; border-radius: 12px;
+            padding: 22px 26px; margin-top: 24px; }
+  h2 { font-size: 20px; color: #ffd700; margin: 0 0 12px; }
+  h3 { font-size: 16px; color: #ffe9a8; margin: 18px 0 6px; }
+  ul, ol { margin: 0; padding-left: 22px; }
+  li { margin: 6px 0; }
+  code { background: #1c130c; padding: 2px 6px; border-radius: 4px; color: #ffd27a; }
+  b { color: #ffe9a8; }
+
+  /* SmartScreen 示意圖 */
+  .demo { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin: 14px 0 4px; }
+  .win { flex: 1 1 260px; background: #0063b1; color: #fff; border-radius: 6px;
+         padding: 16px 18px; font-size: 13px; line-height: 1.6; min-height: 190px;
+         position: relative; }
+  .win .t { font-size: 17px; font-weight: bold; margin-bottom: 8px; }
+  .win .link { text-decoration: underline; display: inline-block; margin-top: 6px; }
+  .win .row { display: flex; gap: 8px; justify-content: flex-end; margin-top: 14px; }
+  .win .b { border: 1px solid #fff; padding: 3px 14px; }
+  .mark { outline: 3px solid #ffd700; outline-offset: 2px; border-radius: 3px; }
+  .step { position: absolute; top: -12px; left: -12px; width: 28px; height: 28px;
+          border-radius: 50%; background: #ffd700; color: #2a1a0e; font-weight: bold;
+          display: flex; align-items: center; justify-content: center; }
+  .arrow { font-size: 28px; color: #ffd700; }
+  .cap { font-size: 12px; color: #9c8a72; }
+  footer { text-align: center; font-size: 13px; color: #7d6c57; margin-top: 36px; }
+</style>
+</head>
+<body>
+<main>
+
+  <!-- ===== 開頭 ===== -->
+  <div class="hero">
+    <div class="fish" id="fish" title="點我敲一下">
+      <svg width="220" height="190" viewBox="0 0 260 220">
+        <ellipse cx="130" cy="190" rx="80" ry="18" fill="#a31f1f" stroke="#6e1212" stroke-width="2"/>
+        <ellipse cx="130" cy="115" rx="90" ry="75" fill="#8b4a1f" stroke="#4a2208" stroke-width="3"/>
+        <ellipse cx="109" cy="75" rx="41" ry="23" fill="#a65f2c"/>
+        <path d="M81 120 q14 16 28 0 M116 120 q14 16 28 0 M151 120 q14 16 28 0"
+              fill="none" stroke="#5c2c0c" stroke-width="2"/>
+        <rect x="50" y="149" width="160" height="20" rx="10" fill="#2b1206"/>
+      </svg>
+    </div>
+    <p class="hint">↑ 先在這裡敲敲看</p>
+
+    <h1>KDMU 摸木魚</h1>
+    <p class="tag">放在桌面的電子木魚，上班摸一下，功德 +1</p>
+
+    <a class="btn" id="download">下載 Windows 版</a>
+    <p class="meta">免安裝・下載後直接開啟・支援 Windows 10 / 11・版本 <span id="ver"></span></p>
+  </div>
+
+  <!-- ===== 功能 ===== -->
+  <section>
+    <h2>功能</h2>
+    <ul>
+      <li>用滑鼠點一下木魚就敲一下，飄出「功德 +1」</li>
+      <li>下方小格子記錄<b>今日敲了幾下</b>，每天自動歸零</li>
+      <li>按右上角小叉叉，木魚會收到右下角的隱藏圖示，不會跳通知</li>
+      <li>右鍵開啟設置：大小、透明度、永遠置頂、開機自動啟動、自訂飄字</li>
+      <li>可以拖曳到桌面任何位置，下次開啟會記得</li>
+    </ul>
+  </section>
+
+  <!-- ===== 開啟步驟 ===== -->
+  <section>
+    <h2>下載後怎麼開啟</h2>
+
+    <h3>1. 下載 KDMU.exe</h3>
+    <p>點上面的下載按鈕。如果出現 Google 雲端硬碟的確認頁面，按「下載」；
+       瀏覽器若提示「不常下載的檔案」，選擇「<b>保留</b>」。</p>
+
+    <h3>2. 雙擊開啟，出現藍色視窗時這樣做</h3>
+    <p>第一次開啟時，Windows 可能會跳出藍色的「Windows 已保護您的電腦」視窗。
+       這是因為 KDMU 是個人製作的小程式，沒有購買數位簽章，<b>並不是病毒</b>。</p>
+
+    <div class="demo">
+      <div class="win">
+        <span class="step">1</span>
+        <div class="t">Windows 已保護您的電腦</div>
+        Microsoft Defender SmartScreen 已防止某個無法辨識的應用程式啟動……<br>
+        <span class="link mark">其他資訊</span>
+        <div class="row"><span class="b">不要執行</span></div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="win">
+        <span class="step">2</span>
+        <div class="t">Windows 已保護您的電腦</div>
+        應用程式：KDMU.exe<br>
+        發行者：不明的發行者
+        <div class="row"><span class="b mark">仍要執行</span><span class="b">不要執行</span></div>
+      </div>
+    </div>
+    <p class="cap">示意圖：先點「其他資訊」，再點「仍要執行」。只有第一次需要這樣做。</p>
+
+    <h3>3. 完成</h3>
+    <p>木魚會出現在螢幕右下角，點它就能開始積功德了。</p>
+  </section>
+
+  <!-- ===== 放置位置 ===== -->
+  <section>
+    <h2>建議放置位置</h2>
+    <p>KDMU 不需要安裝，但建議不要一直放在「下載」資料夾，以免哪天清理時被刪掉。</p>
+    <ol>
+      <li>在「文件」裡新增一個資料夾，例如 <code>文件\KDMU</code>，把 <code>KDMU.exe</code> 移進去。</li>
+      <li>想從桌面打開：在 <code>KDMU.exe</code> 上按右鍵 →（Windows 11 先點「顯示其他選項」）→
+          「傳送到」→「桌面（建立捷徑）」。</li>
+      <li>放好位置後，再到木魚的設置裡打開「<b>開機自動啟動</b>」。</li>
+    </ol>
+    <p class="cap">如果開了開機自動啟動之後又移動了 exe，請到設置裡把開機自動啟動關掉再打開一次。</p>
+  </section>
+
+  <!-- ===== 使用方式 ===== -->
+  <section>
+    <h2>使用方式</h2>
+    <ul>
+      <li><b>左鍵點擊</b>：敲木魚</li>
+      <li><b>按住拖曳</b>：移動木魚（拖曳不算次數）</li>
+      <li><b>右鍵</b>：打開選單，可以進入設置或結束</li>
+      <li><b>右上角小叉叉</b>：收到右下角隱藏圖示（工作列的 <code>^</code> 箭頭裡），點圖示就能叫回來</li>
+    </ul>
+  </section>
+
+  <!-- ===== 常見問題 ===== -->
+  <section>
+    <h2>常見問題</h2>
+    <h3>這是病毒嗎？</h3>
+    <p>不是。藍色警告是因為程式沒有數位簽章，Windows 對所有沒簽章的新程式都會這樣提醒。</p>
+    <h3>功德紀錄存在哪？</h3>
+    <p>存在你自己的電腦裡（<code>%APPDATA%\KDMU</code>），不會上傳到任何地方。換新版 exe 紀錄也不會不見。</p>
+    <h3>怎麼移除？</h3>
+    <p>如果開過開機自動啟動，先到設置裡關掉；再從右下角圖示選「結束」，然後刪除 <code>KDMU.exe</code> 即可。
+       想連紀錄一起清掉，就刪除 <code>%APPDATA%\KDMU</code> 資料夾。</p>
+  </section>
+
+  <footer>KDMU 摸木魚・敲一下，今天也是有功德的一天</footer>
+</main>
+
+<script>
+  // 版本號
+  document.getElementById("ver").textContent = VERSION;
+
+  // 下載按鈕：把 Google 雲端硬碟分享連結轉成直接下載
+  function toDirectLink(url) {
+    const m = url.match(/drive\.google\.com\/file\/d\/([^/?]+)/) || url.match(/[?&]id=([^&]+)/);
+    return m ? "https://drive.google.com/uc?export=download&id=" + m[1] : url;
+  }
+  const btn = document.getElementById("download");
+  if (DOWNLOAD_URL.startsWith("http")) {
+    btn.href = toDirectLink(DOWNLOAD_URL);
+  } else {
+    btn.addEventListener("click", () => alert("下載連結還沒設定喔！"));
+  }
+
+  // 網頁上的木魚也可以敲
+  const fish = document.getElementById("fish");
+  fish.addEventListener("click", () => {
+    const p = document.createElement("span");
+    p.className = "plus";
+    p.textContent = "功德 +1";
+    p.style.left = (60 + Math.random() * 60) + "px";
+    fish.appendChild(p);
+    setTimeout(() => p.remove(), 800);
+  });
+</script>
+</body>
+</html>
