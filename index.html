@@ -9,8 +9,8 @@
      ★ 在這裡貼上你的雲端下載連結（雙引號要保留）
      例如：https://drive.google.com/file/d/xxxxxxxx/view?usp=sharing
      =================================================== */
-  const DOWNLOAD_URL = "https://drive.google.com/file/d/17w8xvf7Dee6x9CvE9DLkkEtHzPtkfCLU/view?usp=drive_link";
-  const VERSION = "1.0";
+  const DOWNLOAD_URL = "https://drive.google.com/file/d/16StCrJaX8Bx8LnzLuhRCJQLlwij8g6in/view?usp=drive_link";
+  const VERSION = "1.1";
 </script>
 <style>
   * { box-sizing: border-box; }
@@ -40,9 +40,9 @@
   ul, ol { margin: 0; padding-left: 22px; }
   li { margin: 6px 0; }
   code { background: #1c130c; padding: 2px 6px; border-radius: 4px; color: #ffd27a; }
+  kbd { background: #f3e6d3; color: #2a1a0e; padding: 1px 6px; border-radius: 4px;
+        font-family: inherit; font-size: 13px; }
   b { color: #ffe9a8; }
-
-  /* SmartScreen 示意圖 */
   .demo { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin: 14px 0 4px; }
   .win { flex: 1 1 260px; background: #0063b1; color: #fff; border-radius: 6px;
          padding: 16px 18px; font-size: 13px; line-height: 1.6; min-height: 190px;
@@ -81,7 +81,7 @@
     <p class="tag">放在桌面的電子木魚，上班摸一下，功德 +1</p>
 
     <a class="btn" id="download">下載 Windows 版</a>
-    <p class="meta">免安裝・下載後直接開啟・支援 Windows 10 / 11・版本 <span id="ver"></span></p>
+    <p class="meta">免安裝・下載後解壓縮即可使用・支援 Windows 10 / 11・版本 <span id="ver"></span></p>
   </div>
 
   <!-- ===== 功能 ===== -->
@@ -91,8 +91,9 @@
       <li>用滑鼠點一下木魚就敲一下，飄出「功德 +1」</li>
       <li>下方小格子記錄<b>今日敲了幾下</b>，每天自動歸零</li>
       <li>按右上角小叉叉，木魚會收到右下角的隱藏圖示，不會跳通知</li>
-      <li>右鍵開啟設置：大小、透明度、永遠置頂、開機自動啟動、自訂飄字</li>
+      <li>右鍵開啟設置：大小、透明度、永遠置頂、自訂飄字</li>
       <li>可以拖曳到桌面任何位置，下次開啟會記得</li>
+      <li>不連網、不修改系統設定，紀錄只存在你自己的電腦</li>
     </ul>
   </section>
 
@@ -100,11 +101,14 @@
   <section>
     <h2>下載後怎麼開啟</h2>
 
-    <h3>1. 下載 KDMU.exe</h3>
-    <p>點上面的下載按鈕。如果出現 Google 雲端硬碟的確認頁面，按「下載」；
+    <h3>1. 下載並解壓縮</h3>
+    <p>點上面的下載按鈕取得 <code>KDMU.zip</code>。如果出現 Google 雲端硬碟的確認頁面，按「下載」；
        瀏覽器若提示「不常下載的檔案」，選擇「<b>保留</b>」。</p>
+    <p>在 <code>KDMU.zip</code> 上按右鍵 →「<b>解壓縮全部</b>」，打開解壓出來的 <code>KDMU</code> 資料夾，
+       雙擊裡面的 <code>KDMU.exe</code>。請不要直接在 zip 裡面執行，也不要刪掉旁邊的
+       <code>_internal</code> 資料夾。</p>
 
-    <h3>2. 雙擊開啟，出現藍色視窗時這樣做</h3>
+    <h3>2. 出現藍色視窗時這樣做</h3>
     <p>第一次開啟時，Windows 可能會跳出藍色的「Windows 已保護您的電腦」視窗。
        這是因為 KDMU 是個人製作的小程式，沒有購買數位簽章，<b>並不是病毒</b>。</p>
 
@@ -134,14 +138,14 @@
   <!-- ===== 放置位置 ===== -->
   <section>
     <h2>建議放置位置</h2>
-    <p>KDMU 不需要安裝，但建議不要一直放在「下載」資料夾，以免哪天清理時被刪掉。</p>
     <ol>
-      <li>在「文件」裡新增一個資料夾，例如 <code>文件\KDMU</code>，把 <code>KDMU.exe</code> 移進去。</li>
-      <li>想從桌面打開：在 <code>KDMU.exe</code> 上按右鍵 →（Windows 11 先點「顯示其他選項」）→
+      <li>把整個 <code>KDMU</code> 資料夾移到「文件」裡，例如 <code>文件\KDMU</code>，不要一直放在「下載」。</li>
+      <li><b>桌面捷徑</b>：在 <code>KDMU.exe</code> 上按右鍵 →（Windows 11 先點「顯示其他選項」）→
           「傳送到」→「桌面（建立捷徑）」。</li>
-      <li>放好位置後，再到木魚的設置裡打開「<b>開機自動啟動</b>」。</li>
+      <li><b>開機自動啟動（可選）</b>：按 <kbd>Win</kbd> + <kbd>R</kbd>，輸入 <code>shell:startup</code>
+          後按 Enter，會打開「啟動」資料夾。把桌面上的 KDMU 捷徑複製一份貼進去，下次開機就會自動出現。</li>
     </ol>
-    <p class="cap">如果開了開機自動啟動之後又移動了 exe，請到設置裡把開機自動啟動關掉再打開一次。</p>
+    <p class="cap">不想開機啟動了，就到同一個「啟動」資料夾把捷徑刪掉。</p>
   </section>
 
   <!-- ===== 使用方式 ===== -->
@@ -159,11 +163,17 @@
   <section>
     <h2>常見問題</h2>
     <h3>這是病毒嗎？</h3>
-    <p>不是。藍色警告是因為程式沒有數位簽章，Windows 對所有沒簽章的新程式都會這樣提醒。</p>
+    <p>不是。藍色警告是因為程式沒有數位簽章，Windows 對所有沒簽章的新程式都會這樣提醒。
+       少數防毒軟體也可能因為同樣原因誤判。</p>
+    <h3>公司電腦被防毒軟體擋掉或刪除了？</h3>
+    <p>公司電腦的防毒通常由 IT 統一管理，請<b>不要自行關閉防毒</b>。
+       請把這個頁面提供給公司 IT，由他們確認後加入允許清單。
+       如果防毒清除後電腦出現異常，先依防毒軟體的提示重新開機。</p>
     <h3>功德紀錄存在哪？</h3>
-    <p>存在你自己的電腦裡（<code>%APPDATA%\KDMU</code>），不會上傳到任何地方。換新版 exe 紀錄也不會不見。</p>
+    <p>存在你自己的電腦裡（<code>%APPDATA%\KDMU</code>），不會上傳到任何地方。換新版紀錄也不會不見。</p>
     <h3>怎麼移除？</h3>
-    <p>如果開過開機自動啟動，先到設置裡關掉；再從右下角圖示選「結束」，然後刪除 <code>KDMU.exe</code> 即可。
+    <p>從右下角圖示選「結束」，刪除整個 <code>KDMU</code> 資料夾和桌面捷徑；
+       如果有放開機啟動捷徑，也到 <code>shell:startup</code> 把它刪掉。
        想連紀錄一起清掉，就刪除 <code>%APPDATA%\KDMU</code> 資料夾。</p>
   </section>
 
@@ -171,7 +181,6 @@
 </main>
 
 <script>
-  // 版本號
   document.getElementById("ver").textContent = VERSION;
 
   // 下載按鈕：把 Google 雲端硬碟分享連結轉成直接下載
